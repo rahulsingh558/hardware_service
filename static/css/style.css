@@ -1,0 +1,170 @@
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --green: #22c55e;
+  --red: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar, .main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+h2 { margin: 0; font-size: 18px; }
+
+/* Pills */
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.pill.idle { background: #e5e7eb; }
+.pill.live { background: #dcfce7; color: #166534; }
+
+/* Toggle */
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.switch {
+  width: 46px;
+  height: 24px;
+  position: relative;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 999px;
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  left: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.25s;
+}
+input:checked + .slider { background: var(--green); }
+input:checked + .slider::before { transform: translateX(22px); }
+
+/* Telemetry */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.label { font-size: 12px; color: var(--muted); }
+.value { font-size: 18px; font-weight: 600; }
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.controls div {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 12px;
+  color: var(--muted);
+}
+input {
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+}
+
+/* Buttons */
+.btn {
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn.primary { background: var(--green); color: white; }
+.btn.primary.running { background: var(--red); }
+
+/* Channel pills */
+.channel-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.channel-pill {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #f9fafb;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+}
+.channel-pill.active {
+  background: #ecfdf5;
+  border-color: #34d399;
+}
+
+/* Chart */
+.chart-box {
+  height: 320px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  background: #fafafa;
+}
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}

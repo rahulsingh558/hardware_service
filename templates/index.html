@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Instrument Dashboard</title>
+
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+
+<body>
+<div class="dashboard">
+
+  <!-- LEFT COLUMN -->
+  <aside class="sidebar">
+
+    <!-- LASER -->
+    <section class="card">
+      <header class="card-header">
+        <h2>Laser Control</h2>
+        <span id="laserState" class="pill idle">OFF</span>
+      </header>
+
+      <div class="toggle-row">
+        <span>Laser Power</span>
+        <label class="switch">
+          <input type="checkbox" id="laserToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div id="laserTelemetry" class="telemetry-grid"></div>
+    </section>
+
+    <!-- TEST SIGNALS -->
+    <section class="card">
+      <header class="card-header">
+        <h2>TimeTagger Test Signals</h2>
+      </header>
+      <div id="testChannels" class="channel-matrix"></div>
+    </section>
+
+  </aside>
+
+  <!-- RIGHT COLUMN -->
+  <main class="main">
+
+    <!-- COUNTRATE -->
+    <section class="card">
+      <header class="card-header">
+        <h2>Countrate (Real-Time)</h2>
+        <button id="crToggle" class="btn primary">Start</button>
+      </header>
+
+      <div class="controls">
+        <div>
+          <label>Window (s)</label>
+          <input id="crTime" type="number" value="1" step="0.1">
+        </div>
+        <div id="crChannels" class="channel-matrix"></div>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="crChart"></canvas>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

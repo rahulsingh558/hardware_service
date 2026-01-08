@@ -1,0 +1,32 @@
+# =====================
+# Node / Frontend
+# =====================
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# =====================
+# Python / Backend
+# =====================
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# =====================
+# Logs & outputs
+# =====================
+*.log
+app_output.log
+test_results.txt
+
+# =====================
+# Environment variables
+# =====================
+.env
+
+# =====================
+# OS files
+# =====================
+.DS_Store
+Thumbs.db
